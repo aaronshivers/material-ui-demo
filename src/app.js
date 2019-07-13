@@ -1,17 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Button } from '@material-ui/core'
-
-const App = () => (
-  <div>
-    <p>Howdy</p>
-    <Button
-      variant="contained"
-      color="primary"
-    >
-      Hello there.
-    </Button>
-  </div>
-)
+import App from './components/App'
+import './styles/styles.scss'
 
 render(<App />, document.getElementById('app'))
