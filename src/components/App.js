@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container } from '@material-ui/core'
 import AddJobForm from './AddJobForm'
+import JobList from './JobList'
 
 export default class App extends Component {
   state = {
@@ -29,6 +30,7 @@ export default class App extends Component {
         <AddJobForm
           handleAddJob={ this.handleAddJob }
         />
+        <JobList />
       </Container>
     )
   }
