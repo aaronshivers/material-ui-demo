@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container } from '@material-ui/core'
 import AddJobForm from './AddJobForm'
-import JobList from './JobList'
+import Jobs from './Jobs'
 
 export default class App extends Component {
   state = {
@@ -14,6 +14,17 @@ export default class App extends Component {
     this.setState(prevState => ({
       jobs: prevState.jobs.concat(job)
     }))
+  }
+
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('jobs')
+      const jobs = JSON.parse(json)
+
+      if (jobs) {
+        this.setState(() => ({ jobs }))
+      }
+    } catch (error) {}
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -30,7 +41,7 @@ export default class App extends Component {
         <AddJobForm
           handleAddJob={ this.handleAddJob }
         />
-        <JobList />
+        <Jobs jobs={ this.state.jobs } />
       </Container>
     )
   }
